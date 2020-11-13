@@ -23,27 +23,7 @@ object QueryEngineDriver {
     queryCSV1.foreach(i => println(i))
 
 
-    /*val transformation = spark.read.json("src/main/resources/data/QueryFormat.json")
-    transformation.printSchema()
-    transformation.createOrReplaceTempView("cste_query_tmp")
-
-    val all = spark.sql("SELECT StepQuery FROM cste_query_tmp")
-    //all.foreach(r => println(r))
-
-
-    val transform = spark.read.json("src/main/resources/data/framedefinition.json")
-    transform.printSchema()
-    transform.createOrReplaceTempView("query_json_tmp_1")
-
-    val selected_1 = spark.sql("SELECT frameDefinition.logical.dimensions.tranformationType.query.steps FROM query_json_tmp_1")
-    selected_1.foreach(r => println(r))
-    selected_1.createGlobalTempView("query_json_tmp_2")*/
-
-    //selected_1.map()
-
-
-    /*val selected_2 = spark.sql("SELECT * FROM query_json_tmp_2")
-    selected_2.foreach(z => println(z))*/
+    
 
     def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {
       val p = new java.io.PrintWriter(f);
@@ -55,13 +35,11 @@ object QueryEngineDriver {
       }
     }
 
-    //printToFile(new File("C:\\dev\\nielsen\\platform\\query\\CSTEQuery1.sql")) { p => all.collect().foreach(p.println) }
-
-    //printToFile(new File("C:\\dev\\nielsen\\platform\\query\\CSTEQuery5.sql")) { p => selected_1.collect().foreach(p.println) }
+   
 
 
     val outputfile = "C:\\var\\dropzone\\json\\output"
-    var filename = "CSTEQuery"
+    var filename = "Query"
     var outputFileName = outputfile + "/temp_" + filename
     /*    all.coalesce(1)
           .write
